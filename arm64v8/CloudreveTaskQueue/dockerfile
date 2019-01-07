@@ -1,0 +1,12 @@
+# Docker 镜像源
+FROM arm64v8/golang
+
+# Docker 镜像信息
+LABEL MAINTAINER "klzy <klzy@vlabpro.com>" \
+ARCHITECTURE "arm64v8"
+
+# 添加
+RUN go get gopkg.in/yaml.v2
+ADD ./ /go
+
+ENTRYPOINT [ "go", "run","/go/main.go" ]
